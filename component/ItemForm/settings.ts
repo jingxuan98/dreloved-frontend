@@ -1,4 +1,4 @@
-import { catogeries } from "./../../pages/createPost/settings";
+import { catogeries } from "../../helper/CreatePostSettings";
 import { InputNumber, Select } from "antd";
 import { Props } from "./props";
 

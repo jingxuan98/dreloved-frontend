@@ -3,7 +3,7 @@ import FormBuilder from "antd-form-builder";
 import { api, UserContext } from "../_app";
 import styles from "../../styles/Home.module.css";
 import { Form, Button } from "antd";
-import getFieldMeta from "./settings";
+import getFieldMeta from "../../helper/CreatePostSettings";
 
 type Props = {};
 const initialProps = {};

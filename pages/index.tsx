@@ -6,7 +6,7 @@ import ItemSmallCard from "../component/itemSmallCard";
 import type { MenuProps } from "antd";
 import { Input, Form, Dropdown, Button, Space, Menu } from "antd";
 import { DownOutlined, SearchOutlined } from "@ant-design/icons";
-import { catogeries } from "./createPost/settings";
+import { catogeries } from "../helper/CreatePostSettings";
 
 const { Search } = Input;
 
