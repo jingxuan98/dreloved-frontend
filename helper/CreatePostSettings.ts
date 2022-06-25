@@ -52,6 +52,7 @@ export const getFieldMeta = () => {
           },
         ],
         prefix: "BUSD",
+        hasFeedback: true,
         min: 1,
         max: 9999,
         placeholder: "Price in (BUSD)",
@@ -61,7 +62,14 @@ export const getFieldMeta = () => {
         label: "Catogery",
         widget: Select,
         placeholder: "Click To Select",
+        hasFeedback: true,
         options: catogeries,
+        rules: [
+          {
+            required: true,
+            message: "This field is required",
+          },
+        ],
       },
     ],
   };
