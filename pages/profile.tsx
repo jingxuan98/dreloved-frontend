@@ -21,7 +21,6 @@ export default function ProfilePage() {
     await fetch(`${api}user/${user?.data?._id}`)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         setItemData(result.item);
         setUserData(result.user);
         if (result.user._id == user?.data?._id) {
@@ -34,7 +33,6 @@ export default function ProfilePage() {
     await fetch(`${api}userReview/${user?.data?._id}`)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         setReviewData(result.reviews);
       });
   };

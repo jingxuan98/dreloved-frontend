@@ -45,7 +45,6 @@ const ItemScreen: React.FC<Props> = (props) => {
       await fetch(`${api}item/${id}`)
         .then((res) => res.json())
         .then((result) => {
-          console.log(result.item);
           setItemData(result.item);
         });
     };
@@ -258,7 +257,6 @@ const ItemScreen: React.FC<Props> = (props) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setOrderId(data.result._id);
       })
       .catch((err) => {
@@ -294,7 +292,6 @@ const ItemScreen: React.FC<Props> = (props) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         router.push(`/myOrders`);
       })
       .catch((err) => {

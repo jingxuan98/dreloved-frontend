@@ -68,7 +68,6 @@ export default function Layout({ children }: LayoutProps) {
   };
 
   const fetchUser = async () => {
-    console.log(account);
     await fetch(`${api}register`, {
       method: "post",
       headers: {
@@ -81,7 +80,6 @@ export default function Layout({ children }: LayoutProps) {
       .then((res) => res.json())
       .then((result) => {
         const { data, message } = result;
-        // console.log(result);
         setUser({ ...user, data });
       });
   };
@@ -114,7 +112,6 @@ export default function Layout({ children }: LayoutProps) {
       if (localStorage?.getItem("isWalletConnected") === "true") {
         try {
           await activate(injected);
-          //console.log("reconnected", account);
           fetchUser();
           localStorage.setItem("isWalletConnected", "true");
         } catch (ex) {

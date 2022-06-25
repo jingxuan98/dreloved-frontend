@@ -62,7 +62,6 @@ export default function Home() {
     })
       .then((res) => res.json())
       .then((results) => {
-        console.log(results.items);
         setItemData(results.items);
       });
   };

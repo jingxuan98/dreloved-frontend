@@ -50,9 +50,6 @@ const CreateForm: React.FC<Props> = (props) => {
           console.log(err);
         });
     }
-    // console.log(item);
-    // console.log(url);
-    // console.log(user?.data);
   }, [url]);
 
   const onActionSubmit = (values: any) => {
@@ -68,7 +65,6 @@ const CreateForm: React.FC<Props> = (props) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(url);
         setUrl(data.url);
       })
       .catch((err) => {

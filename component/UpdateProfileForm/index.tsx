@@ -58,13 +58,11 @@ const UpdateProfileForm: React.FC<Props> = (props) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data.url);
           setUrl(data.url);
         })
         .catch((err) => {
           console.log(err);
         });
-      console.log(url);
     } else {
       fetch(`${api}update`, {
         method: "put",

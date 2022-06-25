@@ -61,7 +61,6 @@ const ItemForm: React.FC<Props> = (props) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(url);
           setUrl(data.url);
         })
         .catch((err) => {

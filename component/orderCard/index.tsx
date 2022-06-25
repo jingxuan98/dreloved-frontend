@@ -16,7 +16,6 @@ const fallback =
 
 const OrderCard: React.FC<Props> = (props) => {
   const { data, key } = props;
-  console.log(data, key);
   return (
     <Panel header={`OrderID: ${data?._id}`} key={1}>
       <OrderForm mode="view" data={data} />

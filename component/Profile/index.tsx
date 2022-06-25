@@ -63,7 +63,6 @@ const ProfileCard: React.FC<Props> = (props) => {
   };
 
   const renderUserModal = () => {
-    console.log(userData);
     return (
       <Modal
         maskClosable

@@ -24,7 +24,6 @@ const UserScreen: React.FC<Props> = (props) => {
       await fetch(`${api}user/${id}`)
         .then((res) => res.json())
         .then((result) => {
-          console.log(result);
           setItemData(result.item);
           setUserData(result.user);
           if (result.user._id == user?.data?._id) {
@@ -36,7 +35,6 @@ const UserScreen: React.FC<Props> = (props) => {
       await fetch(`${api}userReview/${id}`)
         .then((res) => res.json())
         .then((result) => {
-          console.log(result);
           setReviewData(result.reviews);
         });
     };

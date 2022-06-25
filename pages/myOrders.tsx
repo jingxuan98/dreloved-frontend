@@ -51,9 +51,7 @@ export default function Orders() {
   }, [user]);
   //#endregion
 
-  const onChange = (key: string) => {
-    console.log(key);
-  };
+  const onChange = (key: string) => {};
 
   return (
     <div className={styles.container}>
@@ -73,7 +71,6 @@ export default function Orders() {
                 {orderData ? (
                   orderData.map((order, index) => {
                     index++;
-                    console.log(order);
                     // return <OrderCard data={order} key={index.toString()} />;
                     return (
                       <Panel
@@ -95,7 +92,6 @@ export default function Orders() {
                 {soldData ? (
                   soldData.map((order, index) => {
                     index++;
-                    console.log(order);
                     // return <OrderCard data={order} key={index.toString()} />;
                     return (
                       <Panel
