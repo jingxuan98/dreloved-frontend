@@ -205,7 +205,11 @@ export default function Staking() {
       >
         <div>
           <Form onFinish={onFinish} form={form} layout="vertical">
-            <FormBuilder meta={metas} form={form} />
+            <FormBuilder
+              // @ts-ignore
+              meta={metas}
+              form={form}
+            />
             <Button type="primary" htmlType="submit">
               Stake
             </Button>

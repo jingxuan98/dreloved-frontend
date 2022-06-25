@@ -47,7 +47,11 @@ const ShippingForm: React.FC<Props> = (props) => {
       form={form}
       layout="vertical"
     >
-      <FormBuilder meta={metas} form={form} />
+      <FormBuilder
+        // @ts-ignore
+        meta={metas}
+        form={form}
+      />
       <Button style={{ float: "right" }} htmlType="submit" type="primary">
         Submit
       </Button>
@@ -55,4 +59,5 @@ const ShippingForm: React.FC<Props> = (props) => {
   );
 };
 export default ShippingForm;
+// @ts-ignore
 ShippingForm.defaultProps = initialProps;

@@ -145,7 +145,12 @@ const OrderForm: React.FC<Props> = (props) => {
         )}
       </div>
 
-      <FormBuilder meta={metas} form={form} viewMode={mode === "view"} />
+      <FormBuilder
+        // @ts-ignore
+        meta={metas}
+        form={form}
+        viewMode={mode === "view"}
+      />
       <div className={styles.orderActionContainer}>
         {sell ? (
           <>

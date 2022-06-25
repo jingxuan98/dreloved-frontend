@@ -104,7 +104,11 @@ const UserScreen: React.FC<Props> = (props) => {
 
   return (
     <div className={styles.container}>
-      <Profile isUser={isUser} data={userData} rating={rating} />
+      <Profile
+        isUser={isUser} // @ts-ignore
+        data={userData}
+        rating={rating}
+      />
       {/* <h1 className={styles.header1}>Listed Items</h1> */}
       <Tabs defaultActiveKey="1" centered>
         <TabPane tab="Items Listed" key="1">

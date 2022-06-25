@@ -79,7 +79,7 @@ export default function ProfilePage() {
       <div className={styles.innerContainer}>
         {itemData ? (
           itemData.map((item) => {
-            return <ItemSmallCard isDelete data={item} />;
+            return <ItemSmallCard key={item._id} isDelete data={item} />;
           })
         ) : (
           <div>
@@ -97,7 +97,7 @@ export default function ProfilePage() {
       <div className={styles.innerContainer}>
         {wishlistData ? (
           wishlistData.map((item) => {
-            return <ItemSmallCard isDelete data={item} />;
+            return <ItemSmallCard key={item._id} isDelete data={item} />;
           })
         ) : (
           <div>
@@ -118,6 +118,7 @@ export default function ProfilePage() {
           reviewData.map((review) => {
             return (
               <Comment
+                key={review._id}
                 author={
                   <a>{review.postedBy.name || review.postedBy.walletAdd}</a>
                 }
@@ -148,7 +149,12 @@ export default function ProfilePage() {
         </h2>
       ) : (
         <>
-          <Profile isUser={isUser} data={userData} rating={rating} />
+          <Profile
+            isUser={isUser}
+            // @ts-ignore
+            data={userData}
+            rating={rating}
+          />
 
           <Tabs defaultActiveKey="1" centered>
             <TabPane tab="My Items" key="1">

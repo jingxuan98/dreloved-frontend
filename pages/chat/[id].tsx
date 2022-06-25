@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useContext, useState, useEffect, useRef } from "react";
 import styles from "../../styles/Home.module.css";
 import { api, UserContext } from "../_app";
@@ -142,6 +143,7 @@ export default function ChatPage() {
 
                       return (
                         <div
+                          key={chat._id}
                           ref={scrollRef}
                           className={
                             sendByMe ? styles.chatReceived : styles.chatSent
@@ -158,7 +160,7 @@ export default function ChatPage() {
                         src="https://images.vexels.com/media/users/3/206062/isolated/preview/d0de78df943ea9b630c87ec98cf902ef-hi-speech-bubble-doodle.png"
                       />
                       <h2 className={styles.chatHi}>
-                        Say "Hi"
+                        Say Hi
                         <br />
                         Start A Conversation
                       </h2>

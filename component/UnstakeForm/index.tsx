@@ -22,7 +22,11 @@ const UnstakeForm: React.FC<Props> = (props) => {
 
   return (
     <Form onFinish={onActionSubmit} form={form} layout="vertical">
-      <FormBuilder meta={metas} form={form} />
+      <FormBuilder
+        // @ts-ignore
+        meta={metas}
+        form={form}
+      />
       <Button htmlType="submit" type="primary">
         Unstake
       </Button>

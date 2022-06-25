@@ -39,7 +39,11 @@ const UpdateOrderForm: React.FC<Props> = (props) => {
 
   return (
     <Form onFinish={onActionSubmit} form={form} layout="vertical">
-      <FormBuilder meta={metas} form={form} />
+      <FormBuilder
+        // @ts-ignore
+        meta={metas}
+        form={form}
+      />
       <Button style={{ float: "right" }} htmlType="submit" type="primary">
         Update
       </Button>

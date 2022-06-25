@@ -6,6 +6,12 @@ module.exports = nextConfig;
 
 //#endregion
 const withAntdLess = require("next-plugin-antd-less");
+//#endregion
+module.exports = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+};
 
 module.exports = withAntdLess({
   // optional: you can modify antd less variables directly here

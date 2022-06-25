@@ -95,7 +95,11 @@ const UpdateProfileForm: React.FC<Props> = (props) => {
           onChange={(e) => setImage(e.target.files[0])}
         />
       </div>
-      <FormBuilder meta={metas} form={form} />
+      <FormBuilder
+        // @ts-ignore
+        meta={metas}
+        form={form}
+      />
       <Button style={{ float: "right" }} htmlType="submit" type="primary">
         Update
       </Button>

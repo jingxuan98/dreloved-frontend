@@ -84,7 +84,11 @@ const CreateForm: React.FC<Props> = (props) => {
           <div className={styles.formContainer}>
             <Form form={form} layout="vertical" onFinish={onActionSubmit}>
               <div className="file-field input-field">
-                <FormBuilder meta={metas} form={form} />
+                <FormBuilder
+                  // @ts-ignore
+                  meta={metas}
+                  form={form}
+                />
                 <div className="btn">
                   <span style={{ fontWeight: "600" }}>Photo</span>
                   <input
