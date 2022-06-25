@@ -52,12 +52,12 @@ const ItemScreen: React.FC<Props> = (props) => {
     setItemData([]);
   }, []);
 
-  // useEffect(() => {
-  //   // if (txnSuccess) createOrder(itemInnerData, txn);
-  //   if (txnSuccess) {
-  //     createOrder(itemInnerData, txn);
-  //   }
-  // }, [txnSuccess]);
+  useEffect(() => {
+    // if (txnSuccess) createOrder(itemInnerData, txn);
+    if (txnSuccess) {
+      createOrder(itemInnerData, txn);
+    }
+  }, [txnSuccess]);
 
   useEffect(() => {
     if (orderId) {
@@ -339,7 +339,7 @@ const ItemScreen: React.FC<Props> = (props) => {
                 onClick={() => showBuyModal()}
               >
                 {itemData?.status == "UNSOLD"
-                  ? `${itemData?.price} USMT`
+                  ? `${itemData?.price} BUSD`
                   : "Item Sold"}
               </Button>
               <h4 style={{ marginTop: "2rem", fontWeight: 600 }}>Posted by:</h4>

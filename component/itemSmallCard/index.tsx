@@ -85,7 +85,7 @@ const ItemSmallCard: React.FC<Props> = (props) => {
       onClick={() => router.push(`/item/${_id}`)}
       className={styles.cardPrice}
     >
-      <TagOutlined key="price" style={{ marginRight: 10 }} /> {price} USMT
+      <TagOutlined key="price" style={{ marginRight: 10 }} /> {price} BUSD
     </div>,
   ];
 

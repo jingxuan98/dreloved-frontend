@@ -2,7 +2,7 @@ import { useContext, useState, useEffect, useImperativeHandle } from "react";
 import FormBuilder from "antd-form-builder";
 import { api, UserContext } from "../_app";
 import styles from "../../styles/Home.module.css";
-import { Form, Button } from "antd";
+import { Form, Button, notification } from "antd";
 import getFieldMeta from "../../helper/CreatePostSettings";
 
 type Props = {};
@@ -44,7 +44,7 @@ const CreateForm: React.FC<Props> = (props) => {
             console.log({ html: data.error });
           } else {
             //Success
-            console.log({ html: "Created post successfully!" });
+            notification.open({ message: "Created Item successfully!" });
             //   window.location.reload();
           }
         })
