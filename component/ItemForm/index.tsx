@@ -4,7 +4,7 @@ import { Props, initialProps } from "./props";
 import styles from "../../styles/Component.module.css";
 import { Button, Form, notification } from "antd";
 import getFieldMeta from "./settings";
-import { UserContext } from "../../pages/_app";
+import { api, UserContext } from "../../pages/_app";
 
 const ItemForm: React.FC<Props> = (props) => {
   const { data } = props;
@@ -18,7 +18,7 @@ const ItemForm: React.FC<Props> = (props) => {
   useEffect(() => {
     //callback to run code after url is set
     if (item) {
-      fetch(`http://localhost:5002/updateItem/${data?._id}`, {
+      fetch(`${api}updateItem/${data?._id}`, {
         method: "put",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const ItemForm: React.FC<Props> = (props) => {
           console.log(err);
         });
     } else {
-      fetch(`http://localhost:5002/updateItem/${data?._id}`, {
+      fetch(`${api}updateItem/${data?._id}`, {
         method: "put",
         headers: {
           "Content-Type": "application/json",

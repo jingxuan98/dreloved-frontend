@@ -18,7 +18,7 @@ const ShippingForm: React.FC<Props> = (props) => {
 
   const onActionSubmit = async (values: any) => {
     onSubmit(values);
-    // await fetch(`http://localhost:5002/createReview`, {
+    // await fetch(`${api}createReview`, {
     //   method: "post",
     //   headers: {
     //     "Content-Type": "application/json",

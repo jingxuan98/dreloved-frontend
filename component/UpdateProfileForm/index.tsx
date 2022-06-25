@@ -9,6 +9,7 @@ import { Props, initialProps } from "./props";
 import styles from "../../styles/Component.module.css";
 import { Button, Form, notification } from "antd";
 import getFieldMeta from "./settings";
+import { api } from "../../pages/_app";
 
 const UpdateProfileForm: React.FC<Props> = (props) => {
   const { _id, pic, setUserProfile, closeModal } = props;
@@ -21,7 +22,7 @@ const UpdateProfileForm: React.FC<Props> = (props) => {
 
   useEffect(() => {
     if (url && item) {
-      fetch(`http://localhost:5002/update`, {
+      fetch(`${api}update`, {
         method: "put",
         headers: {
           "Content-Type": "application/json",
@@ -65,7 +66,7 @@ const UpdateProfileForm: React.FC<Props> = (props) => {
         });
       console.log(url);
     } else {
-      fetch(`http://localhost:5002/update`, {
+      fetch(`${api}update`, {
         method: "put",
         headers: {
           "Content-Type": "application/json",

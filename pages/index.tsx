@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.css";
-import { UserContext } from "../pages/_app";
+import { api, UserContext } from "../pages/_app";
 import React, { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import ItemSmallCard from "../component/itemSmallCard";
@@ -35,7 +35,7 @@ export default function Home() {
   }, []);
 
   const fetchItems = () => {
-    fetch("http://localhost:5002/allItems")
+    fetch(`${api}allItems`)
       .then((res) => res.json())
       .then((result) => {
         setItemData(result.items);
@@ -49,7 +49,7 @@ export default function Home() {
   };
 
   const fetchAllItemsSort = () => {
-    fetch("http://localhost:5002/allItemsSort", {
+    fetch(`${api}allItemsSort`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export default function Home() {
 
   const fetchSearchItems = (query) => {
     if (query != "") {
-      fetch("http://localhost:5002/search", {
+      fetch(`${api}search`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",

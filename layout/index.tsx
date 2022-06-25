@@ -3,7 +3,7 @@ import Head from "next/head";
 import { CommentOutlined, MessageOutlined } from "@ant-design/icons";
 import { InjectedConnector } from "@web3-react/injected-connector";
 import { useWeb3React } from "@web3-react/core";
-import { UserContext } from "../pages/_app";
+import { api, UserContext } from "../pages/_app";
 import Router, { useRouter } from "next/router";
 import { Button, Menu, Modal } from "antd";
 import styles from "../styles/Layout.module.css";
@@ -31,7 +31,7 @@ export default function Layout({ children }: LayoutProps) {
 
   const fetchUserChatRooms = async () => {
     setChatRoomData([]);
-    await fetch(`http://localhost:5002/getUserChatRooms/${user?.data?._id}`, {
+    await fetch(`${api}getUserChatRooms/${user?.data?._id}`, {
       method: "get",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export default function Layout({ children }: LayoutProps) {
 
   const fetchUser = async () => {
     console.log(account);
-    await fetch("http://localhost:5002/register", {
+    await fetch(`${api}register`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

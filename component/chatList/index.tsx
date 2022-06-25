@@ -24,7 +24,7 @@ const ChatList: React.FC<Props> = (props) => {
 
   // useEffect(() => {
   //   const fetchUserChatRooms = async () => {
-  //     await fetch(`http://localhost:5002/getUserChatRooms/${user?.data?._id}`, {
+  //     await fetch(`${api}getUserChatRooms/${user?.data?._id}`, {
   //       method: "get",
   //       headers: {
   //         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const ChatList: React.FC<Props> = (props) => {
   // }, []);
 
   // const like = async () => {
-  //   await fetch(`http://localhost:5002/like/${_id}`, {
+  //   await fetch(`${api}like/${_id}`, {
   //     method: "put",
   //     headers: {
   //       "Content-Type": "application/json",

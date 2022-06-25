@@ -9,6 +9,7 @@ import { Props, initialProps } from "./props";
 import styles from "../../styles/Component.module.css";
 import { Button, Form, notification } from "antd";
 import getFieldMeta from "./settings";
+import { api } from "../../pages/_app";
 
 const UpdateOrderForm: React.FC<Props> = (props) => {
   const { _id, closeModal } = props;
@@ -17,7 +18,7 @@ const UpdateOrderForm: React.FC<Props> = (props) => {
   const [form] = Form.useForm();
 
   const onActionSubmit = async (values: any) => {
-    await fetch(`http://localhost:5002/updateOrder/${_id}`, {
+    await fetch(`${api}updateOrder/${_id}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",

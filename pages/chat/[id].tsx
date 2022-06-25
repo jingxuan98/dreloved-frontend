@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import styles from "../../styles/Home.module.css";
-import { UserContext } from "../_app";
+import { api, UserContext } from "../_app";
 import { Input, Form, Button, notification } from "antd";
 import Profile from "../../component/Profile";
 import { useRouter } from "next/router";
@@ -9,6 +9,9 @@ import { SendOutlined } from "@ant-design/icons";
 import { io } from "socket.io-client";
 
 const { TextArea } = Input;
+const API = process.env.REACT_APP_API
+  ? "https://dreloved-backend.herokuapp.com"
+  : "http://localhost:5002";
 
 export default function ChatPage() {
   const { user, setUser } = useContext(UserContext);
@@ -26,7 +29,7 @@ export default function ChatPage() {
 
   useEffect(() => {
     const fetchChatRoomChats = async () => {
-      await fetch(`http://localhost:5002/getRoomChats/${id}`, {
+      await fetch(`${api}getRoomChats/${id}`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -43,7 +46,7 @@ export default function ChatPage() {
 
   useEffect(() => {
     if (user?.data) {
-      socket.current = io("http://localhost:5002");
+      socket.current = io(API);
       socket.current.emit("add-user", user?.data._id);
     }
   }, [user]);
@@ -72,7 +75,7 @@ export default function ChatPage() {
       });
     }
 
-    await fetch(`http://localhost:5002/chatRoomSend/${id}`, {
+    await fetch(`${api}chatRoomSend/${id}`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

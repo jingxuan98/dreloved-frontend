@@ -5,7 +5,7 @@ import { initialProps, Props } from "./props";
 import { useRouter } from "next/router";
 import styles from "../../styles/Component.module.css";
 import UpdateProfileForm from "../UpdateProfileForm";
-import { UserContext } from "../../pages/_app";
+import { api, UserContext } from "../../pages/_app";
 import Loader from "../Loader";
 
 const { Meta } = Card;
@@ -26,7 +26,7 @@ const ProfileCard: React.FC<Props> = (props) => {
   }, [data]);
 
   const chatRoomSearch = async () => {
-    await fetch(`http://localhost:5002/chatRoom`, {
+    await fetch(`${api}chatRoom`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",

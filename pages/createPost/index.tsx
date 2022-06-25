@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect, useImperativeHandle } from "react";
 import FormBuilder from "antd-form-builder";
-import { UserContext } from "../_app";
+import { api, UserContext } from "../_app";
 import { Props, initialProps } from "./props";
 import styles from "../../styles/Home.module.css";
 import { Form, Button } from "antd";
@@ -21,7 +21,7 @@ const CreateForm: React.FC<Props> = (props) => {
   useEffect(() => {
     //callback to run code after url is set
     if (url && item) {
-      fetch("http://localhost:5002/createItem", {
+      fetch(`${api}createItem`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",

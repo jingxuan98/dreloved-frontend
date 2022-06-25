@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { UserContext } from "../../pages/_app";
+import { api, UserContext } from "../../pages/_app";
 import {
   TagOutlined,
   EyeOutlined,
@@ -35,7 +35,7 @@ const ItemSmallCard: React.FC<Props> = (props) => {
   }, [itemData, user]);
 
   const like = async () => {
-    await fetch(`http://localhost:5002/like/${_id}`, {
+    await fetch(`${api}like/${_id}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ const ItemSmallCard: React.FC<Props> = (props) => {
   };
 
   const unlike = async () => {
-    await fetch(`http://localhost:5002/unlike/${_id}`, {
+    await fetch(`${api}unlike/${_id}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",

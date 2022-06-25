@@ -8,6 +8,7 @@ import "antd/dist/antd.css";
 import "@fontsource/varela-round";
 import "../styles/globals.css";
 require("../styles/variables.less");
+export const api = process.env.REACT_APP_API || "http://localhost:5002/";
 
 export const UserContext = createContext(null);
 

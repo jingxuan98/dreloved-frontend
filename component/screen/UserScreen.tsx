@@ -1,5 +1,5 @@
 import styles from "../../styles/Home.module.css";
-import { UserContext } from "../../pages/_app";
+import { api, UserContext } from "../../pages/_app";
 import React, { useContext, useState, useEffect } from "react";
 import { Props } from "./props";
 import { Comment, Tooltip, Avatar, Tabs } from "antd";
@@ -21,7 +21,7 @@ const UserScreen: React.FC<Props> = (props) => {
   const [itemInnerData, setItemInnerData] = useState(null);
   useEffect(() => {
     const userFetch = async () => {
-      await fetch(`http://localhost:5002/user/${id}`)
+      await fetch(`${api}user/${id}`)
         .then((res) => res.json())
         .then((result) => {
           console.log(result);
@@ -33,7 +33,7 @@ const UserScreen: React.FC<Props> = (props) => {
         });
     };
     const userReviewFetch = async () => {
-      await fetch(`http://localhost:5002/userReview/${id}`)
+      await fetch(`${api}userReview/${id}`)
         .then((res) => res.json())
         .then((result) => {
           console.log(result);

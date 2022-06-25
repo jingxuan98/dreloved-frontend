@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.css";
-import { UserContext } from "./_app";
+import { api, UserContext } from "./_app";
 import { Collapse, Tabs } from "antd";
 import React, { useContext, useState, useEffect } from "react";
 import OrderCard from "../component/orderCard";
@@ -14,7 +14,7 @@ export default function Orders() {
 
   useEffect(() => {
     const ordersFetch = async () => {
-      await fetch("http://localhost:5002/myOrders", {
+      await fetch(`${api}myOrders`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export default function Orders() {
         });
     };
     const soldOrdersFetch = async () => {
-      await fetch("http://localhost:5002/mySold", {
+      await fetch(`${api}mySold`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",

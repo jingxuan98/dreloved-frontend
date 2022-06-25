@@ -1,5 +1,5 @@
 import styles from "../../styles/Home.module.css";
-import { UserContext } from "../../pages/_app";
+import { api, UserContext } from "../../pages/_app";
 import React, { useContext, useState, useEffect } from "react";
 import Web3 from "web3";
 import { AbiItem } from "web3-utils";
@@ -42,7 +42,7 @@ const ItemScreen: React.FC<Props> = (props) => {
 
   useEffect(() => {
     const itemFetch = async () => {
-      await fetch(`http://localhost:5002/item/${id}`)
+      await fetch(`${api}item/${id}`)
         .then((res) => res.json())
         .then((result) => {
           console.log(result.item);
@@ -244,7 +244,7 @@ const ItemScreen: React.FC<Props> = (props) => {
   };
 
   const createOrder = (item, txn) => {
-    fetch("http://localhost:5002/createOrder", {
+    fetch(`${api}createOrder`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -277,7 +277,7 @@ const ItemScreen: React.FC<Props> = (props) => {
       country,
     } = values;
 
-    fetch(`http://localhost:5002/updateShippingDetails/${orderId}`, {
+    fetch(`${api}updateShippingDetails/${orderId}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",
@@ -303,7 +303,7 @@ const ItemScreen: React.FC<Props> = (props) => {
   };
 
   const deleteItem = async () => {
-    await fetch(`http://localhost:5002/deleteItem/${itemData?._id}`, {
+    await fetch(`${api}deleteItem/${itemData?._id}`, {
       method: "delete",
       headers: {
         "Content-Type": "application/json",

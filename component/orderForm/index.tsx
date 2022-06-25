@@ -13,6 +13,7 @@ import getFieldMeta from "./settings";
 import ReviewForm from "../ReviewForm";
 import ShippingForm from "../ShippingForm";
 import router from "next/router";
+import { api } from "../../pages/_app";
 
 const fallback =
   "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty-300x240.jpg";
@@ -94,7 +95,7 @@ const OrderForm: React.FC<Props> = (props) => {
       country,
     } = values;
 
-    await fetch(`http://localhost:5002/updateShippingDetails/${data?._id}`, {
+    await fetch(`${api}updateShippingDetails/${data?._id}`, {
       method: "put",
       headers: {
         "Content-Type": "application/json",

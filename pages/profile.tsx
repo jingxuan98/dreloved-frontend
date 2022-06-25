@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.css";
-import { UserContext } from "./_app";
+import { api, UserContext } from "./_app";
 import React, { useContext, useState, useEffect } from "react";
 import ItemSmallCard from "../component/itemSmallCard";
 import { Avatar, Tabs, Tooltip, Comment } from "antd";
@@ -18,7 +18,7 @@ export default function ProfilePage() {
   const [wishlistData, setWishlistData] = useState([]);
 
   const itemsFetch = async () => {
-    await fetch(`http://localhost:5002/user/${user?.data?._id}`)
+    await fetch(`${api}user/${user?.data?._id}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -31,7 +31,7 @@ export default function ProfilePage() {
   };
 
   const userReviewFetch = async () => {
-    await fetch(`http://localhost:5002/userReview/${user?.data?._id}`)
+    await fetch(`${api}userReview/${user?.data?._id}`)
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
@@ -58,7 +58,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     const wishlistFetch = async () => {
-      await fetch(`http://localhost:5002/wishlist/${user?.data?._id}`, {
+      await fetch(`${api}wishlist/${user?.data?._id}`, {
         method: "get",
         headers: {
           "Content-Type": "application/json",
