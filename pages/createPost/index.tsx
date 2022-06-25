@@ -1,10 +1,12 @@
 import { useContext, useState, useEffect, useImperativeHandle } from "react";
 import FormBuilder from "antd-form-builder";
 import { api, UserContext } from "../_app";
-import { Props, initialProps } from "./props";
 import styles from "../../styles/Home.module.css";
 import { Form, Button } from "antd";
 import getFieldMeta from "./settings";
+
+type Props = {};
+const initialProps = {};
 
 const fallback =
   "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty-300x240.jpg";
