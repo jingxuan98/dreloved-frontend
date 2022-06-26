@@ -222,66 +222,58 @@ export default function Staking() {
   return (
     <div className={styles.container}>
       <h1 className={styles.header1}>Staking</h1>
-      {!user?.data ? (
-        <h2 className={styles.header1} style={{ fontWeight: 300 }}>
-          Please Connect Your Wallet....
-        </h2>
-      ) : (
-        <div className={styles.stakingContainer}>
-          {renderStakeModal()}
-          {renderUnstakeModal()}
-          <div className={styles.stakedRowBorderBtm}>
-            <img src="/usmt.png" style={{ width: 150 }} />
-            <div className={styles.stakeColumn}>
-              <div className={styles.yieldRow}>
-                <h4 style={{ marginBottom: 0 }} className={styles.h4Label}>
-                  USMT Rewards:
-                </h4>
-                <span className={styles.apyDisplay}> 730% APY Now!</span>
-              </div>
-              <h4 className={styles.yieldDisplay} style={{ marginBottom: 0 }}>
-                {stakedYieldBalance} USMT
+      <div className={styles.stakingContainer}>
+        {renderStakeModal()}
+        {renderUnstakeModal()}
+        <div className={styles.stakedRowBorderBtm}>
+          <img src="/usmt.png" style={{ width: 150 }} />
+          <div className={styles.stakeColumn}>
+            <div className={styles.yieldRow}>
+              <h4 style={{ marginBottom: 0 }} className={styles.h4Label}>
+                USMT Rewards:
               </h4>
+              <span className={styles.apyDisplay}> 730% APY Now!</span>
             </div>
-          </div>
-          <div className={styles.stakedRow}>
-            <div style={{ width: "auto" }} className={styles.stakeColumn}>
-              <h4 className={styles.h4Label}>USMT Staked: </h4>
-              <h4 className={styles.balanceDisplay}>
-                {stakedTokenBalance} USMT
-              </h4>
-            </div>
-            <div className={styles.stakeColumn}>
-              <h4 className={styles.h4Label}>Wallet USMT Balance: </h4>
-              <h4 className={styles.balanceDisplay}>{tokenBalance} USMT</h4>
-            </div>
-          </div>
-
-          <div className={styles.stakedBtnRow}>
-            <Button
-              className={styles.stakedBtn}
-              type="ghost"
-              onClick={showUnstakeModal}
-            >
-              Unstake
-            </Button>
-            <Button
-              className={styles.stakedBtn}
-              type="primary"
-              onClick={onWithdraw}
-            >
-              Withdraw
-            </Button>
-            <Button
-              className={styles.stakedBtn}
-              type="primary"
-              onClick={showStakeModal}
-            >
-              Stake/Top Up
-            </Button>
+            <h4 className={styles.yieldDisplay} style={{ marginBottom: 0 }}>
+              {stakedYieldBalance} USMT
+            </h4>
           </div>
         </div>
-      )}
+        <div className={styles.stakedRow}>
+          <div style={{ width: "auto" }} className={styles.stakeColumn}>
+            <h4 className={styles.h4Label}>USMT Staked: </h4>
+            <h4 className={styles.balanceDisplay}>{stakedTokenBalance} USMT</h4>
+          </div>
+          <div className={styles.stakeColumn}>
+            <h4 className={styles.h4Label}>Wallet USMT Balance: </h4>
+            <h4 className={styles.balanceDisplay}>{tokenBalance} USMT</h4>
+          </div>
+        </div>
+
+        <div className={styles.stakedBtnRow}>
+          <Button
+            className={styles.stakedBtn}
+            type="ghost"
+            onClick={showUnstakeModal}
+          >
+            Unstake
+          </Button>
+          <Button
+            className={styles.stakedBtn}
+            type="primary"
+            onClick={onWithdraw}
+          >
+            Withdraw
+          </Button>
+          <Button
+            className={styles.stakedBtn}
+            type="primary"
+            onClick={showStakeModal}
+          >
+            Stake/Top Up
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
