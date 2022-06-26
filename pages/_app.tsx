@@ -9,8 +9,7 @@ import "@fontsource/varela-round";
 import "../styles/globals.css";
 require("../styles/variables.less");
 export const api = "https://dreloved-backend.herokuapp.com/";
-console.log(process.env);
-console.log(process.env.REACT_APP_API);
+console.log(process.env.NODE_ENV);
 export const UserContext = createContext(null);
 
 function getLibrary(provider: provider) {

@@ -156,7 +156,7 @@ export default function Layout({ children }: LayoutProps) {
       <Head>
         <title>Dreloved</title>
         <meta name="description" content="A Secondhand MarketPlace Dapp" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/newLogo.png" />
       </Head>
       <div className={styles.headerContainer}>
         {renderChatListModal()}
