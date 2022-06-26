@@ -9,7 +9,8 @@ import "@fontsource/varela-round";
 import "../styles/globals.css";
 require("../styles/variables.less");
 export const api = process.env.REACT_APP_API || "http://localhost:5002/";
-
+console.log(process.env);
+console.log(process.env.REACT_APP_API);
 export const UserContext = createContext(null);
 
 function getLibrary(provider: provider) {
