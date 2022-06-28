@@ -210,7 +210,7 @@ export default function Staking() {
               meta={metas}
               form={form}
             />
-            <Button type="primary" htmlType="submit">
+            <Button style={{ float: "right" }} type="primary" htmlType="submit">
               Stake
             </Button>
           </Form>
