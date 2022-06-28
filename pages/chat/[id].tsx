@@ -10,9 +10,7 @@ import { SendOutlined } from "@ant-design/icons";
 import { io } from "socket.io-client";
 
 const { TextArea } = Input;
-const API = process.env.REACT_APP_API
-  ? "https://dreloved-backend.herokuapp.com"
-  : "http://localhost:5002";
+const API = "https://dreloved-backend.herokuapp.com";
 
 export default function ChatPage() {
   const { user, setUser } = useContext(UserContext);
