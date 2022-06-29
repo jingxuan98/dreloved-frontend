@@ -9,6 +9,7 @@ import { Button, Menu, Modal } from "antd";
 import styles from "../styles/Layout.module.css";
 import router from "next/router";
 import ChatList from "../component/chatList";
+import { USMTPrice } from "../component/screen/ItemScreen";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -186,12 +187,24 @@ export default function Layout({ children }: LayoutProps) {
               },
             ]}
           />
-          {active && (
-            <CommentOutlined
-              onClick={showChatListModal}
-              className={styles.chatIcon}
-            />
-          )}
+          <span className={styles.priceContainer}>
+            {" "}
+            {active && (
+              <CommentOutlined
+                onClick={showChatListModal}
+                className={styles.chatIcon}
+              />
+            )}
+            <span className={styles.price}>
+              <img
+                alt="usmtlogo"
+                style={{ height: 25, marginBottom: 2 }}
+                src="/usmt.png"
+              />
+              = {USMTPrice} BUSD
+            </span>
+          </span>
+
           <Button
             className={styles.connectBtn}
             onClick={connect}
