@@ -3,7 +3,7 @@ import { api, UserContext } from "../pages/_app";
 import React, { useContext, useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import ItemSmallCard from "../component/itemSmallCard";
-import type { MenuProps } from "antd";
+import { MenuProps, Pagination } from "antd";
 import { Input, Form, Dropdown, Button, Space, Menu } from "antd";
 import { DownOutlined, SearchOutlined } from "@ant-design/icons";
 import { catogeries } from "../helper/CreatePostSettings";
@@ -18,6 +18,8 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const [sortOpt, setSortOpt] = useState("");
   const [sortOrder, setSortOrder] = useState(0);
+  const [page, setPage] = useState(0);
+  const [totalItems, setTotalItems] = useState(100);
   const [sortDisplay, setSortDisplay] = useState("By Popularity");
 
   useEffect(() => {
@@ -28,19 +30,11 @@ export default function Home() {
     } else {
       fetchAllItemsSort();
     }
-  }, [sortCase, catogery]);
+  }, [sortCase, catogery, page]);
 
   useEffect(() => {
     fetchAllItemsSort();
   }, []);
-
-  const fetchItems = () => {
-    fetch(`${api}allItems`)
-      .then((res) => res.json())
-      .then((result) => {
-        setItemData(result.items);
-      });
-  };
 
   const onSearch = (value: string) => {
     setItemData([]);
@@ -49,7 +43,7 @@ export default function Home() {
   };
 
   const fetchAllItemsSort = () => {
-    fetch(`${api}allItemsSort`, {
+    fetch(`${api}allItemsSort?p=${page}`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -63,12 +57,13 @@ export default function Home() {
       .then((res) => res.json())
       .then((results) => {
         setItemData(results.items);
+        setTotalItems(results.total);
       });
   };
 
   const fetchSearchItems = (query) => {
     if (query != "") {
-      fetch(`${api}search`, {
+      fetch(`${api}search?p=${page}`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
@@ -83,10 +78,16 @@ export default function Home() {
         .then((res) => res.json())
         .then((results) => {
           setItemData(results.item);
+          setTotalItems(results.total);
         });
     } else {
       fetchAllItemsSort();
     }
+  };
+
+  const onPagination = (page, pageSize) => {
+    console.log(page);
+    setPage(page - 1);
   };
 
   const handleMenuClick: MenuProps["onClick"] = (e) => {
@@ -195,6 +196,13 @@ export default function Home() {
             return <ItemSmallCard key={item?._id} data={item} />;
           })}
       </div>
+      <Pagination
+        style={{ marginBottom: "3rem" }}
+        defaultCurrent={1}
+        pageSize={6}
+        total={totalItems}
+        onChange={onPagination}
+      />
     </div>
   );
 }

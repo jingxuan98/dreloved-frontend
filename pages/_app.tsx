@@ -8,8 +8,14 @@ import "antd/dist/antd.css";
 import "@fontsource/varela-round";
 import "../styles/globals.css";
 require("../styles/variables.less");
+
+// // for dev
+// export const api = "http://localhost:5002/";
+
+//for production
 export const api = "https://dreloved-backend.herokuapp.com/";
-console.log(process.env.NODE_ENV);
+
+// console.log(process.env.NODE_ENV);
 export const UserContext = createContext(null);
 
 function getLibrary(provider: provider) {
