@@ -86,7 +86,7 @@ export default function Home() {
   };
 
   const onPagination = (page, pageSize) => {
-    console.log(page);
+    // console.log(page);
     setPage(page - 1);
   };
 
