@@ -199,7 +199,7 @@ export default function Home() {
       <Pagination
         style={{ marginBottom: "3rem" }}
         defaultCurrent={1}
-        pageSize={6}
+        pageSize={8}
         total={totalItems}
         onChange={onPagination}
       />
