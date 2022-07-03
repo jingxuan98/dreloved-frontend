@@ -161,8 +161,9 @@ export default function Layout({ children }: LayoutProps) {
       </Head>
       <div className={styles.headerContainer}>
         {renderChatListModal()}
-        <img alt="logo" className={styles.logo} src="/newLogo.png" />
-
+        <span onClick={() => router.push(`/`)}>
+          <img alt="logo" className={styles.logo} src="/newLogo.png" />
+        </span>
         <div className={styles.headerSide}>
           <Menu
             style={{ marginRight: 10 }}
