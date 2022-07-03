@@ -161,7 +161,7 @@ export default function Layout({ children }: LayoutProps) {
       </Head>
       <div className={styles.headerContainer}>
         {renderChatListModal()}
-        <span onClick={() => router.push(`/`)}>
+        <span style={{ cursor: "pointer" }} onClick={() => router.push(`/`)}>
           <img alt="logo" className={styles.logo} src="/newLogo.png" />
         </span>
         <div className={styles.headerSide}>
