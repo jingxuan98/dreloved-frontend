@@ -476,4 +476,7 @@
     width: 90%;
     min-width: 0px;
   }
+  .itemRow {
+    margin-top: 50px !important;
+  }
 }
