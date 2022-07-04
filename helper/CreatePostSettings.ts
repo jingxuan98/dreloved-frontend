@@ -6,7 +6,7 @@ export const catogeries = [
   { value: "Supplements", label: "Supplements" },
   { value: "Electronics", label: "Electronics" },
   { value: "Medical Supplies", label: "Medical Supplies" },
-  { value: "Furnitures", label: "Furnitures" },
+  { value: "Furnitures & Collectibles", label: "Furnitures & Collectibles" },
   { value: "Beauty & Cosmectics", label: "Beauty & Cosmectics" },
   { value: "Weapons", label: "Weapons" },
 ];
