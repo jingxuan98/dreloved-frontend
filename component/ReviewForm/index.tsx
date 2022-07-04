@@ -12,7 +12,7 @@ import getFieldMeta from "./settings";
 import { api } from "../../pages/_app";
 
 const ReviewForm: React.FC<Props> = (props) => {
-  const { _id, userId, postedId, closeModal } = props;
+  const { _id, userId, postedId } = props;
 
   const metas = getFieldMeta(props);
   const [form] = Form.useForm();
@@ -36,7 +36,6 @@ const ReviewForm: React.FC<Props> = (props) => {
         notification.open({
           message: result.message,
         });
-        closeModal();
       });
   };
 
