@@ -19,6 +19,7 @@ type data = {
 export type Props = {
   _id?: string | string[];
   userId?: string;
+  data?: any;
   closeModal?: () => void;
 };
 

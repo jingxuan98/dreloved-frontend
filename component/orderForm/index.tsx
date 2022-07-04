@@ -61,7 +61,7 @@ const OrderForm: React.FC<Props> = (props) => {
         title={data?.item?.title}
         visible={isOrderModalVisible}
       >
-        <UpdateOrderForm _id={data?._id} />
+        <UpdateOrderForm _id={data?._id} data={data} />
       </Modal>
     );
   };

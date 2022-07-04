@@ -1,6 +1,8 @@
 import { Props } from "./props";
 
 export const getFieldMeta = (props: Props) => {
+  const { data } = props;
+
   return {
     formItemLayout: [24, 24],
     fields: [
@@ -8,6 +10,7 @@ export const getFieldMeta = (props: Props) => {
         key: "trackingNo",
         label: "Tracking No.",
         placeholder: "Tracking No",
+        initialValue: data?.trackingNo,
         hasFeedback: true,
         rules: [
           {
@@ -20,6 +23,7 @@ export const getFieldMeta = (props: Props) => {
         key: "courrierName",
         label: "Courrier Name",
         placeholder: "Courier Name",
+        initialValue: data?.courrierName,
         hasFeedback: true,
         rules: [
           {
