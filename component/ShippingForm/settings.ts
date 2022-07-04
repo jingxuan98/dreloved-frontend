@@ -65,6 +65,7 @@ export const getFieldMeta = (props: Props) => {
         label: "Postcode",
         placeholder: "6 digits Postcode",
         initialValue: data?.postcode,
+        max: 999999,
         widget: InputNumber,
         hasFeedback: true,
         rules: [
@@ -75,6 +76,10 @@ export const getFieldMeta = (props: Props) => {
           {
             required: require,
             message: "This field is required",
+          },
+          {
+            pattern: /^[\d]{0,6}$/,
+            message: "Please make sure is 6 digit",
           },
         ],
       },
