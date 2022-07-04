@@ -349,22 +349,31 @@ const ItemScreen: React.FC<Props> = (props) => {
                 isUser={user?.data?._id == itemData?.postedBy?._id}
               />
               {user?.data?._id == itemData?.postedBy?._id && (
-                <div className={styles.ownerItemContainer}>
+                <div
+                  style={{
+                    justifyContent:
+                      itemData?.status == "UNSOLD" ? "space-between" : "center",
+                  }}
+                  className={styles.ownerItemContainer}
+                >
                   <Button
                     className={styles.ownerButton}
                     type="ghost"
+                    style={{}}
                     onClick={() => showUpdateModal()}
                   >
                     <EditOutlined /> Edit
                   </Button>
-                  <Button
-                    className={styles.ownerButton}
-                    type="ghost"
-                    style={{ color: "red" }}
-                    onClick={showDeleteConfirm}
-                  >
-                    <DeleteOutlined /> Delete
-                  </Button>
+                  {itemData?.status == "UNSOLD" && (
+                    <Button
+                      className={styles.ownerButton}
+                      type="ghost"
+                      style={{ color: "red" }}
+                      onClick={showDeleteConfirm}
+                    >
+                      <DeleteOutlined /> Delete
+                    </Button>
+                  )}
                 </div>
               )}
             </div>

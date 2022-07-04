@@ -12,7 +12,7 @@ import getFieldMeta from "./settings";
 import { api } from "../../pages/_app";
 
 const UpdateOrderForm: React.FC<Props> = (props) => {
-  const { _id, closeModal } = props;
+  const { _id } = props;
 
   const metas = getFieldMeta(props);
   const [form] = Form.useForm();
@@ -33,7 +33,7 @@ const UpdateOrderForm: React.FC<Props> = (props) => {
         notification.open({
           message: result.message,
         });
-        closeModal();
+        location.reload();
       });
   };
 
