@@ -151,7 +151,7 @@ const ItemScreen: React.FC<Props> = (props) => {
             style={{ height: 25, marginRight: 8 }}
             src="/usmt.png"
           />
-          {priceUSMT} USMT, approx. {price90} USD (90% Discount)
+          {priceUSMT} USMT, approx. {price90} USD (10% Discount)
         </div>
         <div
           className={styles.paymentSelectBtn}

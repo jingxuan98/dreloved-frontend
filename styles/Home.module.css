@@ -435,7 +435,7 @@
 }
 
 .orderStatusBtn {
-  border-color: #4354c8;
+  border-color: #4354c8 !important;
 }
 
 .orderStatusContainer {
