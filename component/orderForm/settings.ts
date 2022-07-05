@@ -38,6 +38,16 @@ export const getFieldMeta = (props: Props) => {
             },
           ]),
       {
+        key: "price",
+        label: "Price",
+        initialValue: data?.price,
+      },
+      {
+        key: "token",
+        label: "Token",
+        initialValue: data?.token,
+      },
+      {
         key: "receiverName",
         label: "Receiver Name",
         initialValue: data?.receiverName,

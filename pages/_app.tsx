@@ -10,10 +10,10 @@ import "../styles/globals.css";
 require("../styles/variables.less");
 
 // // for dev
-// export const api = "http://localhost:5002/";
+export const api = "http://localhost:5002/";
 
 //for production
-export const api = "https://dreloved-backend.herokuapp.com/";
+// export const api = "https://dreloved-backend.herokuapp.com/";
 
 // console.log(process.env.NODE_ENV);
 export const UserContext = createContext(null);

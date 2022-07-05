@@ -33,7 +33,9 @@ const ItemScreen: React.FC<Props> = (props) => {
   const [itemData, setItemData] = useState(null);
   const [itemInnerData, setItemInnerData] = useState(null);
   const [txn, setTxn] = useState("");
+  const [token, setToken] = useState("");
   const [orderId, setOrderId] = useState("");
+  const [dealPrice, setDealPrice] = useState(0);
   const [txnSuccess, setTxnSuccess] = useState(false);
   const [isShippingModalVisible, setIsShippingModalVisible] = useState(false);
   const [isBuyModalVisible, setIsBuyModalVisible] = useState(false);
@@ -182,6 +184,8 @@ const ItemScreen: React.FC<Props> = (props) => {
 
   const sendUSMTTransaction = async (item, price) => {
     setItemInnerData(item);
+    setDealPrice(price);
+    setToken("USMT");
     if (!user?.data?.walletAdd) return alert("Please connect your wallet");
     let fromAddress = user?.data?.walletAdd;
     let tokenAddress = "0x9a2b05682D7Ae37128A4827184d4f1877E327aE8";
@@ -213,6 +217,8 @@ const ItemScreen: React.FC<Props> = (props) => {
 
   const sendBUSDTransaction = async (item, price) => {
     setItemInnerData(item);
+    setDealPrice(price);
+    setToken("BUSD");
     if (!user?.data?.walletAdd) return alert("Please connect your wallet");
     let fromAddress = user?.data?.walletAdd;
     let tokenAddress = "0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee";
@@ -253,6 +259,8 @@ const ItemScreen: React.FC<Props> = (props) => {
         buyerId: user?.data?._id,
         sellerId: item?.postedBy?._id,
         txn,
+        price: dealPrice,
+        token,
       }),
     })
       .then((res) => res.json())

@@ -6,6 +6,8 @@ type data = {
   buyer?: User;
   seller?: User;
   txn?: string;
+  token?: string;
+  price?: number;
   receiverName?: string;
   phone?: string;
   address1?: string;
