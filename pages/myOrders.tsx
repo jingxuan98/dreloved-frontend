@@ -96,7 +96,7 @@ export default function Orders() {
       if (order.status == soldStatus) {
         listArr.push(
           <Panel header={`OrderID: ${order?._id}`} key={index.toString()}>
-            <OrderForm mode="view" data={order} />
+            <OrderForm mode="view" sell data={order} />
           </Panel>
         );
       }
