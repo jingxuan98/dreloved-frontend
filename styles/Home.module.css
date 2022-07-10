@@ -502,7 +502,7 @@
   }
   .chatContainer {
     min-width: 0px;
-    width: 1005;
+    width: 100%;
   }
   .chatHi {
     font-size: 12px;
