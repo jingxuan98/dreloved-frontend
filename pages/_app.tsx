@@ -13,7 +13,7 @@ require("../styles/variables.less");
 // export const api = "http://localhost:5002/";
 
 //for production
-export const api = "https://dreloved-backend.herokuapp.com/";
+export const api = "https://dreloved-backend.vercel.app/";
 
 // console.log(process.env.NODE_ENV);
 export const UserContext = createContext(null);
